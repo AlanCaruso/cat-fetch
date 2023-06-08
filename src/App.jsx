@@ -8,14 +8,7 @@ export default function App() {
   const [fact, setFact] = useState();
   const [imageUrl, setImageUrl] = useState();
 
-  useEffect(() => {
-    fetch(CAT_ENDPOINT_RANDOM_FACT)
-      .then((res) => res.json())
-      .then((data) => {
-        const { fact } = data;
-        setFact(fact);
-      });
-  }, []);
+  useEffect(() => {}, []);
 
   useEffect(() => {
     if (!fact) return;
@@ -32,9 +25,19 @@ export default function App() {
       });
   }, [fact]);
 
+  const handleClick = () => {
+    fetch(CAT_ENDPOINT_RANDOM_FACT)
+      .then((res) => res.json())
+      .then((data) => {
+        const { fact } = data;
+        setFact(fact);
+      });
+  };
+
   return (
     <main>
       <h1>Cat Fetch</h1>
+      <button onClick={handleClick}>Get new fact</button>
       {fact && <p>{fact}</p>}
       {imageUrl && (
         <img
