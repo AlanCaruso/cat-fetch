@@ -8,6 +8,11 @@ Cat Fetch is a GitHub repository that showcases a React image gallery app that f
 - Retrieves random cat facts using the Cat Fact Ninja API.
 - Renders the fetched text onto cat images obtained from the Cataas API.
 
+- APIs:
+
+- Random Facts: https://catfact.ninja/fact
+- Random image: https://cataas.com/cat/cat?json=true
+
 ## Installation
 
 1. Clone the repository:
