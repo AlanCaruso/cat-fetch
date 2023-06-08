@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import "./style.css";
 
 const CAT_ENDPOINT_RANDOM_FACT = "https://catfact.ninja/fact";
 const CAT_RANDOM_IMAGE_URL = "https://cataas.com";
+
 export default function App() {
   const [fact, setFact] = useState();
   const [imageUrl, setImageUrl] = useState();
