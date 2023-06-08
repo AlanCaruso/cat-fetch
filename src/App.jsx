@@ -14,20 +14,23 @@ export default function App() {
       .then((data) => {
         const { fact } = data;
         setFact(fact);
-
-        const firstWords = fact.split(" ", 3).join(" ");
-        console.log(firstWords);
-
-        fetch(
-          `https://cataas.com/cat/says/${firstWords}?size=50&color=red&json=true`
-        )
-          .then((res) => res.json())
-          .then((response) => {
-            const { url } = response;
-            setImageUrl(url);
-          });
       });
   }, []);
+
+  useEffect(() => {
+    if (!fact) return;
+    const firstWords = fact.split(" ", 3).join(" ");
+    console.log(firstWords);
+
+    fetch(
+      `https://cataas.com/cat/says/${firstWords}?size=50&color=red&json=true`
+    )
+      .then((res) => res.json())
+      .then((response) => {
+        const { url } = response;
+        setImageUrl(url);
+      });
+  }, [fact]);
 
   return (
     <main>
